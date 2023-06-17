@@ -6,7 +6,7 @@
 
 /*
  * Librairies :
- *      libzip
+ *      libzip -->
  *
  *      getopt  --> permet de gérer les options de ligne de commande
  *
@@ -19,5 +19,5 @@
  */
 
 /*
- * Doit contenir rubrique "help" qui explique comment uitiliser le programme
+ * Doit contenir rubrique "help" qui explique comment utiliser le programme
  */
