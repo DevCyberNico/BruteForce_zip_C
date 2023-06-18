@@ -11,7 +11,7 @@
  *  Page d'accueil pour l'utilisateur
  */
 
-void accueil(){
+void accueil(int argc, char *argv[]){
     int option;
 
     while ((option = getopt(argc, argv, "hobd:p:e:i:")) != -1 ){
