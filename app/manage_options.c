@@ -1,8 +1,7 @@
 //
 // Created by nicof on 17/06/2023.
 //
-
-#include "accueil.h"
+#include "manage_options.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -10,9 +9,8 @@
 #include <getopt.h>
 #include <zip.h>
 #include "usage_case.c"
-#include "./ouvertureZip/ouvertureZip.c"
-
-
+//#include "./ouvertureZip/count_open_zip.c"
+#include "./ouvertureZip/InteractiveopenZip.c"
 
 
 //void cas_d_usage();
@@ -30,9 +28,10 @@ void manage_options(int argc, char *argv[])
       int  open_state = 0;
       char *dictionnaire = NULL;
       char *password = NULL;
-      char *archive = NULL;
+      //char *archive = NULL;
       int verification = 0;
-    option = getopt(argc,argv,"hod:p:e:i:");
+
+    option = getopt(argc,argv,"hopd:e:i:");
   
     while(!verification)
     {
@@ -50,11 +49,12 @@ void manage_options(int argc, char *argv[])
         case 'o':
                 open_state = 1; // si la fonction open est utlisé il prend cette valeur
                 break;
-        case 'd':
-                dictionnaire = optarg; // 
-                break;
         case 'p':
-                password = optarg;  
+                 password = optarg; // 
+                break;
+        case 'd':
+                
+                dictionnaire = optarg; 
                 break;
 
          case ':':
@@ -80,32 +80,50 @@ void manage_options(int argc, char *argv[])
             break;
         }
    
-   if (open_state) {
+   //if (open_state) {//}  
         // Appel de la fonction pour ouvrir et parcourir le fichier zip
         //optind est une variable global qui suit l'argument actuelement traiter
         // argc nombre total des arguments 
         // argv[optind] recupere l'index et donc notre fichier zip
-         if (optind < argc) {
-            archive = argv[optind];
-            open_zip(archive);
+         if ((argc == 3) ){
+            accueil();
             verification = 1;
-      }   else {
-            printf("Erreur : Aucun fichier zip spécifié\n");
+         } 
+        else {
+            //printf("Erreur : Aucun fichier zip spécifié\n");
+            //cas_d_usage();
+
+             printf("Erreur : Aucun fichier zip spécifié\n");
             cas_d_usage();
+            verification = 1;
         }
         
+        //accueil();
+        //verification = 1;
+        
        
-    }
+    //}
 
     if (dictionnaire) { 
         // Appel de la fonction pour effectuer la force brute du mot de passe avec un dictionnaire
         // brute_force_with_dictionary(archive, dictionnaire);
     }
 
-    if (password) {
-        // Appel de la fonction pour ouvrir le fichier zip avec le mot de passe spécifié
-        // open_zip_with_password(archive, password);
-    }
+   // if ((open_state && password)) {
+         if (argc == 5)
+         {
+            accueil_password();
+            verification = 1;
+            
+      }   else {
+            //printf("Erreur : Aucun fichier zip spécifié\n");
+            //cas_d_usage();
+            printf("Erreur : Aucun fichier zip spécifié\n");
+            cas_d_usage();
+            verification = 1;
+        }
+        
+    //}
     }
 
 }
