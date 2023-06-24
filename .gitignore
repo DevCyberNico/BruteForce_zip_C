@@ -1,4 +1,5 @@
 .idea
 cmake-build-debug/
-
+lib
 CMakeLists.txt
+build

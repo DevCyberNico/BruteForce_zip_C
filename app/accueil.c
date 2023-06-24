@@ -4,13 +4,14 @@
 #include <stdio.h>
 #include <unistd.h>
 
+
 #include "accueil.h"
 
 
 /**
  *  Page d'accueil pour l'utilisateur
  */
-
+/*
 void accueil(int argc, char *argv[]){
     int option;
 
@@ -72,4 +73,4 @@ void accueil(int argc, char *argv[]){
 
 
 
-}//fin fonction accueil
+}//fin fonction accueil*/
