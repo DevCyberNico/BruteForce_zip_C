@@ -5,6 +5,9 @@
 
 #define MAX_LIGNE_LONGUEUR 100
 
+
+
+
 void bruteforce(const char *fichier_dico, const char *fichierZip, const char *password){    // 
 
     //char password[4] = "test";
@@ -25,15 +28,16 @@ void bruteforce(const char *fichier_dico, const char *fichierZip, const char *pa
 
     printf("\n");
 
-
 }
+
 
 int main() {
     const char *fichier_dico = "dico.txt";
     const char *fichierZip = "test.zip";
-    const char *password = "motdepasse";
+    const char *password = "test";
 
-    bruteforce(fichier_dico, fichierZip, password); //encryptedFile
+    //bruteforce(fichier_dico, fichierZip, password); //encryptedFile
+    openEncryptedArchive(fichierZip, password);
 
     return 0;
 }
