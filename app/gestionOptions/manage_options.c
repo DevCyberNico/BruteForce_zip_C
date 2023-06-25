@@ -1,16 +1,19 @@
 //
 // Created by nicof on 17/06/2023.
 //
-#include "manage_options.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <getopt.h>
 #include <zip.h>
+
+#include "manage_options.h"
+
 #include "usage_case.c"
 //#include "./ouvertureZip/count_open_zip.c"
-#include "./ouvertureZip/InteractiveopenZip.c"
+#include "../ouvertureZip/interactif/InteractiveopenZip.c"
+//#include "./ouvertureZip/InteractiveopenZip.c"
 
 
 //void cas_d_usage();

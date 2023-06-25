@@ -4,8 +4,8 @@
 #include <getopt.h>
 #include <zip.h>
 //#include "count_open_zip.c"
-#include "content_open_zip.c"
-#include "see_file_zip.c"
+#include "../contenuFichier/content_open_zip.c"
+#include "../voirFichier/see_file_zip.c"
 //#include "./usage_case.c"
 #include "InteractiveopenZip.h"
 
