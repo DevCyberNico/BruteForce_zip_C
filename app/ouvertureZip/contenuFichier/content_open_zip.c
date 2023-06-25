@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <zip.h>
-#include "count_open_zip.c"  //???
+#include "../compter/count_open_zip.c"  //???
 #include "content_open_zip.h"
 
 //void cas_d_usage();

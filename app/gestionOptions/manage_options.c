@@ -10,7 +10,7 @@
 
 #include "manage_options.h"
 
-#include "usage_case.c"
+#include "../casUsages/usage_case.h"
 //#include "./ouvertureZip/count_open_zip.c"
 #include "../ouvertureZip/interactif/InteractiveopenZip.c"
 //#include "./ouvertureZip/InteractiveopenZip.c"

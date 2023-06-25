@@ -3,7 +3,7 @@
 #include <string.h>
 #include <zip.h>
 //#include "count_open_zip.c"
-#include "content_open_zip.h"
+#include "../contenuFichier/content_open_zip.h"
 #include "see_file_zip.h"
 
 //void cas_d_usage();

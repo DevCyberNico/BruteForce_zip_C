@@ -1,22 +1,30 @@
+ 
 {
-    "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
-            "type": "shell",
-            "command": "gcc",
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe générer le fichier actif",
+            "command": "C:\\msys64\\mingw64\\bin\\gcc.exe",
             "args": [
-                "-I\\C:\\msys64\\mingw64\\include",
-                "-L\\C:\\msys64\\mingw64\\lib",
-                "${main.c}",
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-lzip"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "detail": "Tâche générée par le débogueur."
         }
-    ]
+    ],
+    "version": "2.0.0"
 }

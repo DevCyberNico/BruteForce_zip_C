@@ -6,7 +6,7 @@
 //#include "count_open_zip.c"
 #include "../contenuFichier/content_open_zip.c"
 #include "../voirFichier/see_file_zip.c"
-//#include "./usage_case.c"
+#include "../../casUsages/usage_case.c"
 #include "InteractiveopenZip.h"
 
 void cas_d_usage();
