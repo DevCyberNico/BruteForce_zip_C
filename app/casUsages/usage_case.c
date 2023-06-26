@@ -16,7 +16,5 @@ void cas_d_usage()
       "        -b, --bruteforce           Try to bruteforce the password\n"
       "        -d, --dictionary=FILE      Try to bruteforce the password with a dictionary\n"
       "        -p, --password=PASSWORD    Use this password\n"
-      "        -e, --extract=FILE Extract this file\n"
-      "        -i, --include=FILE Include this file\n"
       "\n");
 }

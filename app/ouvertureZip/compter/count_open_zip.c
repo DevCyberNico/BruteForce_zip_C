@@ -1,21 +1,8 @@
-//
-// Created by nicof on 17/06/2023.
-//
-
-//
-
-// Update by secu_omih on 23/06/23
-
-//
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <zip.h>
 #include "count_open_zip.h"
-
-
-//void cas_d_usage();
 
 
 int open_zip(const char* fichierZip)

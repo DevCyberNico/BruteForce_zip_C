@@ -7,25 +7,22 @@ int add_file_zip(const char* fichierZip)
 {    
      struct zip* archive;
      struct zip_source* source;
-     const char* nomduFichier = "C:/Users/hi.ossombimbossa/Documents/ZIP_Project/sujet.txt";
-     const char* chemindestination = "C:/Users/hi.ossombimbossa/Documents/ZIP_Project/recap2.zip/sujet.txt";
+     char nomduFichier[1000];
+     char chemindestination[1000];
      int verdict;
 
-    archive= zip_open(fichierZip, ZIP_CREATE, NULL);
+    archive= zip_open(fichierZip,ZIP_CREATE, NULL);
     if (archive == NULL) {
         printf("Échec de l'ouverture de l'archive zip\n");
         return 404;
     }
-    //printf("\nPourriez-vous indiquer le fichier que vous voulez ajoutez(+extension)\n\n");
-    //scanf("%s", nomduFichier);
-    //printf("\n");
+    printf("\nPourriez-vous indiquer le fichier que vous voulez ajoutez(+extension)\n\n");
+    scanf("%s", nomduFichier);
+    printf("\n");
 
-   // printf("\nVeuillez entrer le chemin de destination du fichier dans le zip\n\n");
-    //scanf("%s", chemindestination);
-    //printf("\n");
-
-   // printf("%s",chemindestination);
-    //printf("%s", nomduFichier);
+    printf("\nVeuillez entrer le chemin de destination du fichier dans le zip\n\n");
+    scanf("%s", chemindestination);
+    printf("\n");
 
     source = zip_source_file(archive, nomduFichier, 0, -1);
     if (source == NULL) {
@@ -34,7 +31,7 @@ int add_file_zip(const char* fichierZip)
         return 404;
     }
 
-    verdict = zip_file_add(archive, chemindestination, source, ZIP_FL_ENC_UTF_8);
+    verdict = zip_file_add(archive, chemindestination, source, ZIP_FL_OVERWRITE);
     if (verdict == 0) {
         printf("Échec de l'ajout du fichier à l'archive zip\n");
         zip_source_free(source);
@@ -57,13 +54,13 @@ int add_file_zip(const char* fichierZip)
     printf("\nNombre de fichiers dans l'archive : %d\n\n", count);
     printf("\n");
 
-    printf("\nLa liste des dossiers et ou fichiers contenu dans le zip:\n");
+    printf("\nLa liste des dossiers et ou fichiers contenu dans le nouveau zip:\n");
     printf("\n");
     int i = 0 ;
     for(i=0; i<count; i++)
     {
         //on utilise la position "i" pour récupérer le nom des fichiers
-        printf("%s\n", zip_get_name(archive, i, ZIP_FL_UNCHANGED));
+        printf("%s\n", zip_get_name(archive, i,0));
     }
 
 

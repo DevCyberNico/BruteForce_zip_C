@@ -1,12 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
-//#include <string.h>
 #include <getopt.h>
 #include <zip.h>
-//#include "count_open_zip.c"
+
 #include "../contenuFichier/content_open_zip.c"
 #include "../voirFichier/see_file_zip.c"
 #include "../../casUsages/usage_case.c"
+#include "../../Ajout_fichier/add_file.c"
+
 #include "InteractiveopenZip.h"
 
 void cas_d_usage();
@@ -41,21 +42,22 @@ void accueil()
 
                "2 - La liste de fichiers contenu dans l'archive zip\n\n"
 
-               "3 - Ouvrir un fichier ou dossier \n\n"
+               "3 - Ouvrir un fichier  \n\n"
 
-               "4 - Extraire un fichier ou dossier \n\n"
+               "4 - Inclure un fichier  \n\n"
 
                "5 - Fermer le programme\n\n"
 
         );
 
-
+        /**
+        */
+        // argc nombre total des arguments 
+        // argv[optind] recupere l'index et donc notre fichier zip
         do{
             printf("\nEntrer votre Choix : \n\n");
             scanf("%d", &choix_menu);
-        }
-
-        while(choix_menu < 1 || choix_menu > 5);
+        }while(choix_menu < 1 || choix_menu > 5);
 
         switch(choix_menu){
             case 1:
@@ -91,7 +93,14 @@ void accueil()
                 break;
 
             case 4:
-                
+                if (optind < argumentTT) {
+                archive = argument[optind];
+                add_file_zip(archive);
+                }   
+                else {
+                printf("Erreur : Aucun fichier zip spécifié\n");
+                cas_d_usage();
+                }
                 break;
 
             case 5 :
@@ -139,15 +148,15 @@ void accueil_password()
 
                "2 - La liste de fichiers contenu dans l'archive zip\n\n"
 
-               "3 - Ouvrir un fichier ou dossier \n\n"
+               "3 - Ouvrir un fichier  \n\n"
 
-               "4 - Extraire un fichier ou dossier \n\n"
+               "4 - inclure un fichier  \n\n"
 
                "5 - Fermer le programme\n\n"
 
         );
 
-
+        
         do{
             printf("\nEntrer votre Choix : \n\n");
             scanf("%d", &choix_menu);
@@ -191,7 +200,14 @@ void accueil_password()
                 break;
 
             case 4:
-                
+                if (optind < argumentTT) {
+                archive = argument[optind];
+                add_file_zip(archive);
+                }   
+                else {
+                printf("Erreur : Aucun fichier zip spécifié\n");
+                cas_d_usage();
+                }
                 break;
 
             case 5 :

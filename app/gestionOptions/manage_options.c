@@ -7,31 +7,20 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <zip.h>
-
 #include "manage_options.h"
-
 #include "../casUsages/usage_case.h"
-//#include "./ouvertureZip/count_open_zip.c"
 #include "../ouvertureZip/interactif/InteractiveopenZip.c"
-//#include "./ouvertureZip/InteractiveopenZip.c"
 
 
-//void cas_d_usage();
-//int open_zip(const char* fichierZip);
-
-//void cas_d_usage();
 
 
 void manage_options(int argc, char *argv[])
 {
-     //const char *zip_file = "recap.zip";
-
-   //Dechiffre_FichierZip_W_Password(zip_file);
+     
       int  option;
       int  open_state = 0;
       char *dictionnaire = NULL;
       char *password = NULL;
-      //char *archive = NULL;
       int verification = 0;
 
     option = getopt(argc,argv,"hopd:e:i:");
@@ -83,7 +72,7 @@ void manage_options(int argc, char *argv[])
             break;
         }
    
-   //if (open_state) {//}  
+   
         // Appel de la fonction pour ouvrir et parcourir le fichier zip
         //optind est une variable global qui suit l'argument actuelement traiter
         // argc nombre total des arguments 
@@ -100,12 +89,6 @@ void manage_options(int argc, char *argv[])
             cas_d_usage();
             verification = 1;
         }
-        
-        //accueil();
-        //verification = 1;
-        
-       
-    //}
 
     if (dictionnaire) { 
         // Appel de la fonction pour effectuer la force brute du mot de passe avec un dictionnaire

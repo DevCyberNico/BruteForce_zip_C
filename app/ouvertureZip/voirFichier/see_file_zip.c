@@ -2,25 +2,21 @@
 #include <stdio.h>
 #include <string.h>
 #include <zip.h>
-//#include "count_open_zip.c"
+
 #include "../contenuFichier/content_open_zip.h"
 #include "see_file_zip.h"
 
-//void cas_d_usage();
 
 int see_open_file(const char* fichierZip)
 {
 
     struct zip *archive; // cette structure represente une archive ouverte.
-    struct zip_file *file; // un fichier du zip ouvert 
+    struct zip_file *file; // pointeur sur un fichier du zip ouvert 
     int count ;
     int i ;
-    char filename[100];
-    //const char *password = "recap"; // mot de passe du fichier.zip
+    char filename[100];// recupere le nom du fichier 
 
-    // Ouvrir l'archive ZIP chiffrée
-    // important "archive" est le pointeur vers le fichier zip ouvert, obligé que ça soit une structure. 
-    archive = zip_open(fichierZip, 0, NULL);
+    archive = zip_open(fichierZip, 0, NULL);// ouverture du zip
     if (archive == NULL) {
 
         printf("Erreur à l'ouverture de l'archive %s\n", fichierZip);
@@ -57,13 +53,13 @@ int see_open_file(const char* fichierZip)
     }
 
 
-    char buffer[256];// un pointeur générique
-    int linereadable = zip_fread(file, buffer, sizeof(buffer));
+    char taille[256];// un pointeur générique
+    int linereadable = zip_fread(file, taille, sizeof(taille));
     while (linereadable > 0) {
         // Lire le fichier 
-        printf("%.*s", linereadable, buffer);
+        printf("%.*s", linereadable, taille);
 
-        linereadable = zip_fread(file, buffer, sizeof(buffer));
+        linereadable = zip_fread(file, taille, sizeof(taille));
     }
      printf("\n");
     // Fermer le fichier 
@@ -128,13 +124,13 @@ int see_open_file_password(const char* fichierZip, const char* password)
         return -1;
     }
 
-    char buffer[256];// un pointeur générique
-    int linereadable = zip_fread(file, buffer, sizeof(buffer));
+    char taille[256];// un pointeur générique
+    int linereadable = zip_fread(file, taille, sizeof(taille));
     while (linereadable > 0) {
         // Lire le fichier 
-        printf("%.*s", linereadable, buffer);
+        printf("%.*s", linereadable, taille);
 
-        linereadable = zip_fread(file, buffer, sizeof(buffer));
+        linereadable = zip_fread(file, taille, sizeof(taille));
     }
      printf("\n");
     // Fermer le fichier 

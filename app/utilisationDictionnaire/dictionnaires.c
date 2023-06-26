@@ -87,12 +87,6 @@ void bruteforce(const char *fichier_dico, const char *fichierZip){    //
         return;
     }
 
-    /*char line[MAX_LIGNE_LONGUEUR];
-    while(fgets(line, sizeof(line), file_dico) != NULL){
-        char password_found = line;
-        printf("%s", line);
-    
-    }*/
     char password = 'test';
 
     while(see_open_file_password(fichierZip,password) != 202){
